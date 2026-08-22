@@ -26,14 +26,13 @@ app.get("/health", (req, res) => {
 
 // Serve static files from the public directory if it exists
 // This is useful for serving a frontend application built with React, Vue, etc.
-if(fs.existsSync(publicDir)) {
+if (fs.existsSync(publicDir)) {
   app.use(express.static(publicDir));
-  // Catch-all route to serve index.html for any other requests (for SPA routing)
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(publicDir, "index.html") , (err) => next(err));
+
+  app.get("/{*splat}", (req, res) => {
+    res.sendFile(path.join(publicDir, "index.html"));
   });
 }
-
 
 
 
