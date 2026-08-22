@@ -9,7 +9,7 @@ import path from "path";
 
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const frontendUrl = process.env.FRONTEND_URL;
 const publicDir = path.join(process.cwd(), "public");
 
@@ -41,5 +41,5 @@ if(fs.existsSync(publicDir)) {
 
 app.listen(port, () => {
   connectDB();
-  console.log("Server is running on port 3000");
+  console.log(`Server is running on port ${port}`);
 });
