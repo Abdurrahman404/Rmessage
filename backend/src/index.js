@@ -7,6 +7,7 @@ import fs from "fs";
 import path from "path"; 
 import clerkWebhook from "./webhooks/clerk.webhook.js";
 import job from "./lib/crons.js";
+import authRoutes from "./routes/auth.route.js";
 
 
 
@@ -30,9 +31,13 @@ app.use(express.json());
 app.use(clerkMiddleware());
 app.use(cors({ origin: frontendUrl, credentials: true }));
 
+
+app.use('api/auth' , authRoutes); 
+
 app.get("/health", (req, res) => {
   res.status(200).json({ message: "Server is healthy" });
 });
+
 
 
 // Serve static files from the public directory if it exists
