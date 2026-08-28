@@ -8,6 +8,9 @@ import path from "path";
 import clerkWebhook from "./webhooks/clerk.webhook.js";
 import job from "./lib/crons.js";
 import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
+
+
 
 
 
@@ -32,7 +35,8 @@ app.use(clerkMiddleware());
 app.use(cors({ origin: frontendUrl, credentials: true }));
 
 
-app.use('api/auth' , authRoutes); 
+app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 app.get("/health", (req, res) => {
   res.status(200).json({ message: "Server is healthy" });
