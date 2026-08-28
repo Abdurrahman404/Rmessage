@@ -9,13 +9,14 @@ import clerkWebhook from "./webhooks/clerk.webhook.js";
 import job from "./lib/crons.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
+import {app , server } from "../src/lib/socket.js"
 
 
 
 
 
 
-const app = express();
+ 
 const port = process.env.PORT || 3000;
 const frontendUrl = process.env.FRONTEND_URL;
 const publicDir = path.join(process.cwd(), "public");
@@ -58,7 +59,7 @@ if (fs.existsSync(publicDir)) {
 
 
 
-app.listen(port, () => {
+server.listen(port, () => {
   connectDB();
   if(process.env.NODE_ENV === "production"){
     (job.start())
