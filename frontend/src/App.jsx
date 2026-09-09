@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useAuth } from "@clerk/react";
 import { Navigate, Route, Routes } from "react-router";
-import { ThemeProvider } from "./context/ThemeContext";
-import { WallpaperProvider } from "./context/WallpaperContext";
+import { ThemeProvider } from "./context/themeContext";
+import { WallpaperProvider } from "./context/wallpaperContext";
 import PageLoader from "./components/PageLoader";
 import ChatPage from "./pages/ChatPage";
 import AuthPage from "./pages/AuthPage";

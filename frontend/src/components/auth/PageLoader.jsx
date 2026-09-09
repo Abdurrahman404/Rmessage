@@ -1,5 +1,5 @@
 import { LoaderIcon } from "lucide-react";
-import { APP_NAME, AppLogo } from "./AppLogo";
+import { APP_NAME, AppLogo } from "../AppLogo";
 
 const PageLoader = () => {
   return (
