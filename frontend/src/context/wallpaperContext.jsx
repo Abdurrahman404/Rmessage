@@ -5,10 +5,7 @@ import { WallpaperContext } from "./wallpaper";
 const STORAGE_KEY = "chat-wallpaper-id";
 
 function readStoredWallpaperId() {
-  const wallpaperId = localStorage.getItem(STORAGE_KEY);
-  if (wallpaperId) return wallpaperId;
-
-  return "sonoma-horizon";
+  return localStorage.getItem(STORAGE_KEY) || "sonoma-horizon";
 }
 
 export function WallpaperProvider({ children }) {
@@ -19,11 +16,7 @@ export function WallpaperProvider({ children }) {
   }, [wallpaperId]);
 
   const wallpaper = getWallpaperById(wallpaperId);
-
-  const setWallpaperId = (id) => {
-    setWallpaperIdState(id);
-  };
-
+  const setWallpaperId = (id) => setWallpaperIdState(id);
   const frameStyle = frameStyleFromUrl(wallpaper.url);
 
   return (

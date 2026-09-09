@@ -5,10 +5,11 @@ import App from './App.jsx'
 import { ClerkProvider } from '@clerk/react'
 import { BrowserRouter } from "react-router";
 
+const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ClerkProvider>
+    <ClerkProvider publishableKey={publishableKey}>
       <BrowserRouter>
         <App />
       </BrowserRouter>

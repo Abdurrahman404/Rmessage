@@ -5,7 +5,8 @@ import {protectRoute} from '../middlewares/auth.middleware.js'
 const router = express.Router()
 
 
-router.get('/' , protectRoute , checkAuth)
+router.get('/', protectRoute, checkAuth)
+router.get('/check', protectRoute, checkAuth)
 
 
-export default router ; 
+export default router;
