@@ -6,6 +6,7 @@ import { AuthCardShell } from "./AuthCardShell";
 
 const AFTER_AUTH = "/";
 
+// logo Tile class name 
 const logoTileClassName = [
   "relative rounded-2xl bg-linear-to-b from-white to-[#f2f2f7] p-2",
   "shadow-lg shadow-black/8 ring-1 ring-black/8",
